@@ -1,0 +1,26 @@
+{%extends 'base.html' %}
+{%block start%}
+<h1>Django Template</h1>
+
+<!-- {{people}} -->
+
+<a href="/contact">Contact</a>
+<a href="/about">About</a>
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+
+  {% for item in people %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.age}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{%endblock%}
