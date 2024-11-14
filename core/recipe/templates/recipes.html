@@ -39,7 +39,27 @@
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 
-  <table class="table ">
+  <div class="mt-5 mb-5">
+    <div class="mx-auto col-6">
+      <form >
+        {%csrf_token%}
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Search Recipe</label
+          >
+          <input
+            type="search"
+            class="form-control"
+            name="search"
+            id=""
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -54,12 +74,22 @@
         <th scope="row">{{forloop.counter}}</th>
         <td>{{recipe.recipe_name}}</td>
         <td>{{recipe.recipe_desc}}</td>
-        <td>{{recipe.recipe_image}}</td>
+        <td>
+          <img style="height: 50px" src="/media/{{recipe.recipe_image}}" />
+        </td>
+        <td>
+          <a class="btn btn-danger" href="/delete-recipes/{{recipe.id}}"
+            >Delete</a
+          >
+
+          <a class="btn btn-success" href="/update-recipe/{{recipe.id}}"
+            >Update</a
+          >
+        </td>
       </tr>
       {%endfor%}
     </tbody>
   </table>
-
 </div>
 
 {%endblock%}

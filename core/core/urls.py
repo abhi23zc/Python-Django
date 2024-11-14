@@ -12,8 +12,12 @@ urlpatterns = [
     path('contact/', contact, name="contact"),
     path('about/', about, name="about"),
     path('admin/', admin.site.urls),
-    
-    path('recipes/', recipes, name="recipes")
+    path('recipes/', recipes, name="recipes"),
+    path('delete-recipes/<id>/', delete_recipe, name="recipes"),
+    path('update-recipe/<id>/', update_recipe, name="recipes"),
+
+    path('login/', login, name="login"),
+    path('signup/', signup, name="signup")
 ]
 
 
